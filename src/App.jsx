@@ -9,7 +9,7 @@ function App() {
   const [userdata, setuserdata] = useState({ name: "", age: "", city: "" });
 
   const getallusers = async () => {
-    await axios.get("http://localhost:7000/users").then((res) => {
+    await axios.get("https://nodejs123.netlify.app/users").then((res) => {
       setUsers(res.data);
       setFilterusers(res.data);
     });
@@ -38,7 +38,7 @@ function App() {
     const isconformed = window.confirm("Are you sure delete this data");
 
     if (isconformed) {
-      await axios.delete(`http://localhost:7000/users/${id}`).then((res) => {
+      await axios.delete(`https://nodejs123.netlify.app/users/${id}`).then((res) => {
         setUsers(res.data);
         setFilterusers(res.data);
       });
@@ -64,12 +64,12 @@ function App() {
 
     if (userdata.id) {
       await axios
-        .patch(`http://localhost:7000/users/${userdata.id}`, userdata)
+        .patch(`https://nodejs123.netlify.app/users/${userdata.id}`, userdata)
         .then((res) => {
           console.log(res);
         });
     } else {
-      await axios.post("http://localhost:7000/users", userdata).then((res) => {
+      await axios.post("https://nodejs123.netlify.app/users", userdata).then((res) => {
         console.log(res);
       });
     }
